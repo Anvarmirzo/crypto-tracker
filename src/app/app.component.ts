@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {MatSelectChange} from '@angular/material/select';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'crypto';
+  selectedCurrency = 'inr';
+
+  constructor() {
+  }
+
+  sendCurrency(val: MatSelectChange) {
+    console.log(val)
+  }
 }
