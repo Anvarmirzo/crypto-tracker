@@ -29,7 +29,7 @@
   <!-- Table -->
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
-    <input style="color: aliceblue;" matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <input style="color: aliceblue;" matInput (keyup)="applyFilter($event)" placeholder="Ex. BTC" #input>
   </mat-form-field>
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>

@@ -2,7 +2,7 @@ export interface ICurrency {
   id: string
   symbol: string
   name: string
-  image: string
+  image: string | { large: string, small: string, thumb: string }
   current_price: number
   market_cap: number
   market_cap_rank: number
@@ -25,6 +25,191 @@ export interface ICurrency {
   atl_date: string
   roi: any
   last_updated: string
+  market_data?: IMarketData
+  description?: {
+    ar: string
+    bg: string
+    cs: string
+    da: string
+    de: string
+    el: string
+    en: string
+    es: string
+    fi: string
+    fr: string
+    he: string
+    hi: string
+    hr: string
+    hu: string
+    id: string
+    it: string
+    ja: string
+    ko: string
+    lt: string
+    nl: string
+    no: string
+    pl: string
+    pt: string
+    ro: string
+    ru: string
+    sk: string
+    sl: string
+    sv: string
+    th: string
+    tr: string
+    uk: string
+    vi: string
+    zh: string
+    'zh-tw': string
+  }
+}
+
+export interface IMarketData {
+  current_price: ICurrentPrice
+  market_cap: MarketCap
+  market_cap_rank: number
+  price_change_24h: number
+  price_change_percentage_24h: number
+  price_change_percentage_7d: number
+  price_change_percentage_14d: number
+  price_change_percentage_30d: number
+  price_change_percentage_60d: number
+  price_change_percentage_200d: number
+  price_change_percentage_1y: number
+  market_cap_change_24h: number
+  market_cap_change_percentage_24h: number
+  total_supply: number
+  max_supply: number
+  circulating_supply: number
+  last_updated: string
+}
+
+export interface ICurrentPrice {
+  aed: number
+  ars: number
+  aud: number
+  bch: number
+  bdt: number
+  bhd: number
+  bmd: number
+  bnb: number
+  brl: number
+  btc: number
+  cad: number
+  chf: number
+  clp: number
+  cny: number
+  czk: number
+  dkk: number
+  dot: number
+  eos: number
+  eth: number
+  eur: number
+  gbp: number
+  hkd: number
+  huf: number
+  idr: number
+  ils: number
+  inr: number
+  jpy: number
+  krw: number
+  kwd: number
+  lkr: number
+  ltc: number
+  mmk: number
+  mxn: number
+  myr: number
+  ngn: number
+  nok: number
+  nzd: number
+  php: number
+  pkr: number
+  pln: number
+  rub: number
+  sar: number
+  sek: number
+  sgd: number
+  thb: number
+  try: number
+  twd: number
+  uah: number
+  usd: number
+  vef: number
+  vnd: number
+  xag: number
+  xau: number
+  xdr: number
+  xlm: number
+  xrp: number
+  yfi: number
+  zar: number
+  bits: number
+  link: number
+  sats: number
+}
+
+export interface MarketCap {
+  aed: number
+  ars: number
+  aud: number
+  bch: number
+  bdt: number
+  bhd: number
+  bmd: number
+  bnb: number
+  brl: number
+  btc: number
+  cad: number
+  chf: number
+  clp: number
+  cny: number
+  czk: number
+  dkk: number
+  dot: number
+  eos: number
+  eth: number
+  eur: number
+  gbp: number
+  hkd: number
+  huf: number
+  idr: number
+  ils: number
+  inr: number
+  jpy: number
+  krw: number
+  kwd: number
+  lkr: number
+  ltc: number
+  mmk: number
+  mxn: number
+  myr: number
+  ngn: number
+  nok: number
+  nzd: number
+  php: number
+  pkr: number
+  pln: number
+  rub: number
+  sar: number
+  sek: number
+  sgd: number
+  thb: number
+  try: number
+  twd: number
+  uah: number
+  usd: number
+  vef: number
+  vnd: number
+  xag: number
+  xau: number
+  xdr: number
+  xlm: number
+  xrp: number
+  yfi: number
+  zar: number
+  bits: number
+  link: number
+  sats: number
 }
 
 export interface ITrendingCurrency extends ICurrency {
