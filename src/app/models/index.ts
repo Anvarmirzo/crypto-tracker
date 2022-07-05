@@ -23,7 +23,6 @@ export interface ICurrency {
   atl: number
   atl_change_percentage: number
   atl_date: string
-  roi: any
   last_updated: string
   market_data?: IMarketData
   description?: {

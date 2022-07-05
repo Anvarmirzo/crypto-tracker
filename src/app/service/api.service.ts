@@ -19,7 +19,7 @@ export class ApiService {
     return this.http.get<ITrendingCurrency[]>(`${this.baseUrl}/markets?vs_currency=${currency}&order=market_cap_desc&sparkline=false&price_change_percentage=24h&per_page=10&page=1`);
   }
 
-  getGraphicalData(coinId: string, currency: string, days: string) {
+  getGraphicalCurrencyData(coinId: string, currency: string, days: number) {
     return this.http.get<{ prices: number[][] }>(`${this.baseUrl}/${coinId}/market_chart?vs_currency=${currency}&days=${days}`);
   }
 

@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {CoinDetailComponent} from './components/coin-detail/coin-detail.component';
 import {CoinListComponent} from './components/coin-list/coin-list.component';
 import {MaterialModule} from "./material/material.module";
+import {NgChartsModule} from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {MaterialModule} from "./material/material.module";
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    NgChartsModule,
     MaterialModule
   ],
   providers: [],
