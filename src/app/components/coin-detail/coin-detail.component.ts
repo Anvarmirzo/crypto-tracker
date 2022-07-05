@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {ICurrency} from "../../models";
 import {ChartConfiguration, ChartType} from "chart.js";
 import {BaseChartDirective} from "ng2-charts";
+import {CurrencyService} from "../../service/currency.service";
 
 @Component({
   selector: 'app-coin-detail',
@@ -50,14 +51,22 @@ export class CoinDetailComponent implements OnInit {
   @ViewChild(BaseChartDirective) myLineChart !: BaseChartDirective;
 
 
-  constructor(private api: ApiService, private activatedRoute: ActivatedRoute) {
+  constructor(private api: ApiService, private activatedRoute: ActivatedRoute, private currencyService: CurrencyService) {
   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe({
       next: (params) => {
         this.coinId = params['id'];
-        this.getCoinData();
+      }
+    })
+    this.getCoinData();
+    this.getGraphData(this.days);
+    this.currencyService.getCurrency().subscribe({
+      next: (data) => {
+        this.currency = data;
+        this.getGraphData(this.days);
+        this.getCoinData()
       }
     })
   }
@@ -66,14 +75,21 @@ export class CoinDetailComponent implements OnInit {
     this.api.getCurrencyById(this.coinId).subscribe({
       next: (data) => {
         this.coinData = data;
-        this.currentPrice = data.market_data?.current_price.btc || 0
-        this.marketCap = data.market_data?.market_cap.btc || 0
         this.description = data?.description?.en.split('. ')[0]
         if (typeof data.image === 'string') {
           this.imgURL = data.image
         } else {
           this.imgURL = data.image.large
         }
+
+        if (this.currency === 'USD') {
+          this.currentPrice = data.market_data?.current_price.usd || 0
+          this.marketCap = data.market_data?.market_cap.usd || 0
+        } else {
+          this.currentPrice = data.market_data?.current_price.inr || 0
+          this.marketCap = data.market_data?.market_cap.inr || 0
+        }
+
       }
     })
   }
