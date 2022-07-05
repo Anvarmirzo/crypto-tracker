@@ -57,7 +57,7 @@ export class CoinListComponent implements OnInit {
     if (this.dataSource.paginator) this.dataSource.paginator.firstPage();
   }
 
-  gotoDetails(row: any) {
+  gotoDetails(row: { id: string }) {
     this.router.navigate(['coin-detail', row.id])
   }
 }
