@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {MatSelectChange} from '@angular/material/select';
+import {CurrencyService} from "./service/currency.service";
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,18 @@ import {MatSelectChange} from '@angular/material/select';
 })
 export class AppComponent {
   title = 'crypto';
-  selectedCurrency = 'inr';
+  selectedCurrency = 'USD';
 
-  constructor() {
+  constructor(private currencyService: CurrencyService) {
   }
 
-  sendCurrency(val: MatSelectChange) {
-    console.log(val)
+  sendCurrency(val: string) {
+    this.currencyService.getCurrency().subscribe({
+        next: data => {
+          console.log(data)
+        }
+      }
+    )
+    this.currencyService.setCurrency(val);
   }
 }

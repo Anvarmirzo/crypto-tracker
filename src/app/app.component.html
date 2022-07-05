@@ -1,17 +1,15 @@
-<p>
-  <mat-toolbar>
-    <span class="text-uppercase">crypto checker</span>
-    <span class="example-spacer"></span>
-    <mat-form-field>
-      <mat-select
-        class="text-uppercase text-sm"
-        [(value)]="selectedCurrency"
-        (valueChange)="sendCurrency($event)"
-      >
-        <mat-option class="text-uppercase" value="inr">inr</mat-option>
-        <mat-option class="text-uppercase" value="usd">usd</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-toolbar>
-  <router-outlet></router-outlet>
-</p>
+<mat-toolbar>
+  <span class="text-uppercase">crypto checker</span>
+  <span class="example-spacer"></span>
+  <mat-form-field color="accent">
+    <mat-select
+      class="text-uppercase text-sm"
+      [(value)]="selectedCurrency"
+      (valueChange)="sendCurrency($event)"
+    >
+      <mat-option class="text-uppercase" value="INR">inr</mat-option>
+      <mat-option class="text-uppercase" value="USD">usd</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-toolbar>
+<router-outlet></router-outlet>
